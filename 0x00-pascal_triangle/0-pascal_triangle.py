@@ -1,23 +1,18 @@
 #!/usr/bin/python3
-"""
-Module 12-pascal_triangle
-"""
+"""Module for pascal_triangle function"""
 
 
 def pascal_triangle(n):
-    """
-    Returns pascal's trangle(list of lists of integers)
-    or an empty list if n <= 0
-    """
+    """Returns a list of list of integers"""
     if n <= 0:
         return []
 
-    triangles = [[1]]
-    while len(triangles) != n:
-        tri = triangles[-1]
-        tmp = [1]
+    x = [[1]]
+    while len(x) != n:
+        tri = x[-1]
+        y = [1]
         for i in range(len(tri) - 1):
-            tmp.append(tri[i] + tri[i + 1])
-        tmp.append(1)
-        triangles.append(tmp)
-    return triangles
+            y.append(tri[i] + tri[i + 1])
+        y.append(1)
+        x.append(y)
+    return x
