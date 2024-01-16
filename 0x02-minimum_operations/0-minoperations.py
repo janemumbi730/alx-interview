@@ -1,20 +1,40 @@
 #!/usr/bin/python3
-"""
-Module 0-minoperations
-"""
+""" define minOperations function """
 
 
 def minOperations(n):
-    """
-    In a text file, there is a single character H.r 
-    """
-    operation = 0
-    if n < 2:
-        return 0
-    for i in range(2, n + 1):
-        while(n % i == 0):
-            operation += i
-            n /= i
-            if n < i:
+    """ calculates fewest number of operations needed to
+    result in exactly n H characters in the file"""
+    # Get the least prime factors of n, and add them together
+    if (n > 1):
+        primes = []
+
+        while (n > 1):
+            leastFactor = primeFactors(n)
+
+            primes.append(leastFactor)
+
+            n = int(n / leastFactor)
+
+            # print(f"new n is {n}")
+
+        return (sum(primes))
+    else:
+        return (0)
+
+
+def primeFactors(n):
+    """Get the least prime factor of an integer"""
+
+    isPrime = False
+
+    for i in range(1, (n + 1)):
+        # print(f"Testing if {i} is a prime number")
+        for j in range(1, i):
+            isPrime = False
+            if (i % j == 0 and j != 1 and j != i):
+                # print(f"{i} is not a prime number")
+                isPrime = True
                 break
-    return operation
+        if (i != 1 and isPrime is False and n % i == 0):
+            return (i)
