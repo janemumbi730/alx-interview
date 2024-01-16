@@ -14,7 +14,6 @@ def minOperations(n):
 
             n = int(n / leastFactor)
 
-
         return (sum(primes))
     else:
         return (0)
