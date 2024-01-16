@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" define minOperations function """
+"""Module 0-minoperations"""
 
 
 def minOperations(n):
-    """ calculates fewest number of operations needed to result"""
+    """ calculates minimum number of ops needed to result"""
     if (n > 1):
         primes = []
 
